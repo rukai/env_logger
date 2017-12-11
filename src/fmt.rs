@@ -29,7 +29,7 @@ pub struct Formatter {
 /// A formatter with a particular style.
 /// 
 /// Each call to `write` will apply the style before writing the output.
-pub(crate) struct StyledFormatter<W> {
+pub struct StyledFormatter<W> {
     buf: W,
     spec: ColorSpec,
 }
@@ -44,7 +44,7 @@ impl Formatter {
         }
     }
 
-    pub(crate) fn color(&mut self, color: Color) -> StyledFormatter<&mut Buffer> {
+    pub fn color(&mut self, color: Color) -> StyledFormatter<&mut Buffer> {
         let mut spec = ColorSpec::new();
         spec.set_fg(Some(color));
 
